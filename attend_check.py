@@ -98,7 +98,10 @@ class attend_check:
         return img
 
     def detect_member(self, img):
-        img_path = './attendImg/' + img # me
+        if type(img) == json:
+            img_path = './attendImg/' + img['img_name'] # me
+        else:
+            img_path = './attendImg/' + str(img)
         img_ori = self.read_img(img_path)
         img_cv = copy.deepcopy(img_ori)
 
