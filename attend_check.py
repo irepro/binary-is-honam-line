@@ -128,7 +128,10 @@ class attend_check:
                         fontScale=1, color=last_found['color'], thickness=2)
 
         result = {}
-        session = img.split('_')
+        if img.str.contains('_'):
+            session = img.split('_')
+        else :
+            session = ['unknown', 'unknown.unknown']
         result['sessionName'] = session[0]
         result['sessionDate'] = session[1].split('.')[0]
         result['sessionAttendMember'] = attend_member
